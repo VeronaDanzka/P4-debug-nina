@@ -20,6 +20,13 @@ body {
 
 .top-header .name {
 	font-size: 26px;
+	line-height: 0.8;
+}
+
+.h1-subtitle{
+	font-family: 'Spectral';
+    font-size: 15px;
+    font-style: italic;
 }
 
 .nav ul {
