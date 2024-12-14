@@ -72,6 +72,7 @@ body {
 	flex: 1;
 	margin: 0 20px;
 	z-index: 0;
+	padding-top: 30px;
 }
 
 .picture img {
@@ -90,6 +91,7 @@ body {
 	font-family: 'Spectral';
 	font-weight: 800;
 	font-style: italic;
+	font-size: 18px;
 	width: 60%;
 }
 #about-me p {
@@ -108,7 +110,7 @@ body {
 	justify-content: center;
 }
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-	color: #fff;
+	color: black;
 	background-color: #BEB45A;
 	border-radius:0 ;
 }
@@ -154,6 +156,8 @@ body {
 	font-family: Spectral;
 	font-style: italic;
 	font-weight: 300;
+	font-size: 25px;
+    text-align: center;
 
 }
 .quote__author {
@@ -207,6 +211,7 @@ body {
 
 #contact .container {
 	display: flex;
+	gap: 50px;
 }
 .picture.right::before {
 	content: ' ';
@@ -219,7 +224,8 @@ body {
 	z-index: -1;
 }
 .form-container {
-	flex : 2;
+	flex : 1;
+	padding-top: 20px;
 
 }
 form {
@@ -250,6 +256,37 @@ input[type="submit"] {
 	background-color: #BEB45A;
 	padding: .5em 1em
 }
+.contact-container{
+	display: flex;
+    gap: 15px;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: -20px 20px 0px 2px #beb45a;
+}
+.contact-info{
+	display:grid;
+	grid-template-columns: 25px 2fr;
+	grid-template-rows: repeat(3, 50px);
+	gap:15px;
+	align-items: center;
+}
+.contact-info a{
+	color:black;
+}
+.contact-info a:hover{
+	color:black;
+	font-weight:700;
+}
+.contact-info ul{
+	list-style:none;
+	padding: 0;
+	margin: 0;
+}
+.contact-info address{
+	margin: 0;
+}
+
+  
 
 @media all and (max-width: 1180px) {
 	.picture {
@@ -358,6 +395,11 @@ input[type="submit"] {
 	}
 	.picture {
 		width: 80%;
+	}
+	.contact-container{
+		padding: 25px 5px 40px 25px;
+    	box-shadow: 0px 17px 0px 0px #beb45a;
+		border-right: none;
 	}
 }
 

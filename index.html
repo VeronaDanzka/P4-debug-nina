@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Vous cherchez un photographe professionnel à bordeaux ? Je suis Nina Carducci et j'offre mes services pour des shootings photos, retouches photos ou la création d'albums photos">
-	<title>Nina Carducci - Photographe professionnelle</title>
+	<meta name="description" content="Vous cherchez un photographe professionnel à bordeaux ? Je suis Nina Carducci et j'offre mes services pour des shootings photos, retouches photos ou la création d'albums photos personnalisés.">
+	<title>Nina Carducci - Photographe professionnelle à Bordeaux</title>
 	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,94 @@
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="./assets/maugallery.js"></script>
 	<script src="./assets/scripts.js"></script>
+	<script type="application/ld+json">
+		{	"@context": "https://schema.org",
+			"@type": "Service",
+			"serviceType": "Photographe",
+			"description": "Photographe professionnelle à Bordeaux, spécialisée dans les shootings photo, retouches, et création d'albums personnalisés",
+			"provider": {
+				"@type": "LocalBusiness",
+				"name": "Nina Carducci Photographe",
+				"telephone": "+33 5 56 67 78 89",
+				"url": "https://nina-carducci.github.io/",
+				"priceRange": "€€",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "68 avenue Alsace-Lorraine",
+					"addressLocality": "Bordeaux",
+					"postalCode": "33200",
+					"addressCountry": "FR"
+				},
+				"openingHoursSpecification": [
+					{
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": [
+						"Monday",
+						"Tuesday",
+						"Wednesday",
+						"Thursday",
+						"Friday"
+						],
+						"opens": "10:00",
+						"closes": "19:00"
+					},
+					{
+						"@type": "OpeningHoursSpecification",
+						"dayOfWeek": [
+							"Saturday",
+							"Sunday"
+						],
+						"opens": "00:00",
+						"closes": "00:00"
+					}
+				]
+			},
+			"areaServed": {
+				"@type": "City",
+				"name": "Bordeaux"
+			},
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "Service de photographie",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"name": "shooting photo",
+						"price": "350.00",
+						"priceCurrency": "EUR",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "shooting photo"
+						}
+					},
+					{
+						"@type": "Offer",
+						"name": "retouches photo",
+						"price": "50.00",
+      					"priceCurrency": "EUR",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "retouches photo"
+						}						
+					},
+					{
+						"@type": "Offer",
+						"name": "création d'album photo",
+						"price": "400.00",
+      					"priceCurrency": "EUR",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "création d'album photo"
+						}						
+					}
+				]
+			},
+			"sameAs": [
+  				"https://www.instagram.com/ninacarducci.photo"
+			]
+		
+		}
+	</script>
 </head>
 <body>
 <header class="top-header">
@@ -33,15 +121,15 @@
 		<div id="header">
 			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
 				<div class="carousel-inner" aria-label="carrousel de photos du photographe">
-					<figure class="carousel-item active">
+					<picture class="carousel-item active">
 						<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.jpg" class="d-block w-100" alt="...">
-					</figure>
-					<figure class="carousel-item">
+					</picture>
+					<picture class="carousel-item">
 						<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.jpg" class="d-block w-100" alt="...">
-					</figure>
-					<figure class="carousel-item">
+					</picture>
+					<picture class="carousel-item">
 						<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.jpg" class="d-block w-100" alt="...">
-					</figure>
+					</picture>
 				</div>
 				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" aria-label="Revenir à l'image précédente">
 					<i class="carousel-control-prev-icon"><span class="visually-hidden">Retour</span></i>
@@ -65,7 +153,7 @@
 		</figure>
 		<div id="about-me">
 			<h2 class="about-me__title">A propos de moi</h2>
-			<p><span class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</span><br> 
+			<p><span class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</span><br><br> 
 			Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
 			C’est ce que je vous propose : saisir ces merveilleux moments au travers de mon regard, mon approche, ma technique. Rendre ces moments immortels, afin que vous puissiez y puiser de l’amour, du bonheur, de la tendresse et de lumière à chaque fois que vous poserez les yeux sur vos photos.</p>
 			</div>
@@ -141,8 +229,22 @@
 </main>
 <footer id="contact">
 	<div class="container">
+		<div class="contact-container">
+			<h2>Coordonnées</h2>
+			<div class="contact-info"> 
+				<i class="camera-icon"></i><address>68 avenue Alsace-Lorraine<br>33200 Bordeaux</address>
+				<i class="phone-icon"><span class="visually-hidden">téléphone</span></i><a href="tel:05 56 67 78 89">05 56 67 78 89</a>
+				<i class="calendar-check-icon">
+					<span class="visually-hidden">horaire d'ouverture</span>
+				</i>
+				<ul>
+					<li>Lundi au Vendredi: 10h à 19h</li>
+					<li>Samedi au Dimanche: fermé</li>
+				</ul>
+			</div>
+		</div>
 		<div class="form-container">
-			<h3>Une question ? Une demande de devis ?</h3>
+			<h2>Une question ? Une demande de devis ?</h2>
 			<p> N’hésitez pas à m’écrire ! Je vous répondrais en moins de 24 heures</p>
 			<form action="" method="post">
 				<label for="nom">Nom</label>
