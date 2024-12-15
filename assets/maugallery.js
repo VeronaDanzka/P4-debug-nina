@@ -123,23 +123,15 @@
       $(`#${lightboxId}`)
         .find(".lightboxImage")
         .attr("src", element.attr("src"));
-      $(`#${lightboxId}`)
-        .find("#webp-img-mobile")
-        .attr("srcset", srcSetWebpMobile);
-      $(`#${lightboxId}`)
-        .find("#jpeg-img-mobile")
-        .attr("srcset", srcSetJpegMobile);
-      $(`#${lightboxId}`)
-        .find("#webp-img-desktop")
-        .attr("srcset", srcSetWebpDesktop);
-      $(`#${lightboxId}`)
-        .find("#jpeg-img-desktop")
-        .attr("srcset", srcSetJpegDesktop);
+      $("#webp-img-mobile").attr("srcset", srcSetWebpMobile);
+      $("#jpeg-img-mobile").attr("srcset", srcSetJpegMobile);
+      $("#webp-img-desktop").attr("srcset", srcSetWebpDesktop);
+      $("#jpeg-img-desktop").attr("srcset", srcSetJpegDesktop);
       $(`#${lightboxId}`).modal("toggle");
     },
     prevImage() {
       let activeImage = null;
-      $("img.gallery-item").each(function() {
+      $(".gallery-item img").each(function() {
         if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
           activeImage = $(this);
         }
@@ -148,37 +140,48 @@
       let imagesCollection = [];
       if (activeTag === "all") {
         $(".item-column").each(function() {
-          if ($(this).children("img").length) {
-            imagesCollection.push($(this).children("img"));
+          if ($(this).find("img").length) {
+            imagesCollection.push($(this).find("img"));
           }
         });
       } else {
         $(".item-column").each(function() {
           if (
             $(this)
-              .children("img")
+              .find("img")
               .data("gallery-tag") === activeTag
           ) {
-            imagesCollection.push($(this).children("img"));
+            imagesCollection.push($(this).find("img"));
           }
         });
       }
       let index = 0,
         next = null;
-
       $(imagesCollection).each(function(i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i ;
+          index = i - 1;
         }
       });
+      console.log(imagesCollection)
       next =
         imagesCollection[index] ||
         imagesCollection[imagesCollection.length - 1];
+      const srcUrlNext = $(next).attr("src").split(".jpg");
+      console.log(srcUrlNext);
+      const srcSetWebpMobileNext = `${srcUrlNext[0]}-500.webp`;
+      const srcSetWebpDesktopNext = `${srcUrlNext[0]}-2000.webp`;
+      const srcSetJpegMobileNext = `${srcUrlNext[0]}-500.jpg`;
+      const srcSetJpegDesktopNext = `${srcUrlNext[0]}-2000.jpg`;
+      $("#webp-img-mobile").attr("srcset", srcSetWebpMobileNext);
+      $("#jpeg-img-mobile").attr("srcset", srcSetWebpDesktopNext);
+      $("#webp-img-desktop").attr("srcset", srcSetJpegMobileNext);
+      $("#jpeg-img-desktop").attr("srcset", srcSetJpegDesktopNext);
+      $(".lightboxImage").attr("src", $(next).attr("src"));
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
     nextImage() {
       let activeImage = null;
-      $("img.gallery-item").each(function() {
+      $(".gallery-item img").each(function() {
         if ($(this).attr("src") === $(".lightboxImage").attr("src")) {
           activeImage = $(this);
         }
@@ -187,18 +190,18 @@
       let imagesCollection = [];
       if (activeTag === "all") {
         $(".item-column").each(function() {
-          if ($(this).children("img").length) {
-            imagesCollection.push($(this).children("img"));
+          if ($(this).find("img").length) {
+            imagesCollection.push($(this).find("img"));
           }
         });
       } else {
         $(".item-column").each(function() {
           if (
             $(this)
-              .children("img")
+              .find("img")
               .data("gallery-tag") === activeTag
           ) {
-            imagesCollection.push($(this).children("img"));
+            imagesCollection.push($(this).find("img"));
           }
         });
       }
@@ -207,10 +210,20 @@
 
       $(imagesCollection).each(function(i) {
         if ($(activeImage).attr("src") === $(this).attr("src")) {
-          index = i;
+          index = i + 1;
         }
       });
       next = imagesCollection[index] || imagesCollection[0];
+      const srcUrlNext = $(next).attr("src").split(".jpg");
+      console.log(srcUrlNext);
+      const srcSetWebpMobileNext = `${srcUrlNext[0]}-500.webp`;
+      const srcSetWebpDesktopNext = `${srcUrlNext[0]}-2000.webp`;
+      const srcSetJpegMobileNext = `${srcUrlNext[0]}-500.jpg`;
+      const srcSetJpegDesktopNext = `${srcUrlNext[0]}-2000.jpg`;
+      $("#webp-img-mobile").attr("srcset", srcSetWebpMobileNext);
+      $("#jpeg-img-mobile").attr("srcset", srcSetWebpDesktopNext);
+      $("#webp-img-desktop").attr("srcset", srcSetJpegMobileNext);
+      $("#jpeg-img-desktop").attr("srcset", srcSetJpegDesktopNext);
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
     createLightBox(gallery, lightboxId, navigation) {
@@ -264,7 +277,7 @@
         return;
       }
       $(".active-tag").removeClass("active active-tag");
-      $(this).addClass("active-tag");
+      $(this).addClass("active active-tag");
 
       var tag = $(this).data("images-toggle");
 
