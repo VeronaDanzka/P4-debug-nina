@@ -159,7 +159,16 @@
 	</section>
 	<section id="about">
 		<figure class="picture left">
-			<img src="./assets/images/nina.png" alt="photo de profil de Nina Carducci">
+			<picture>
+				<!-- desktop & tablet -->
+				<source srcset="./assets/images/nina.webp" type="image/webp" media="(min-width: 768px)" loading="lazy">
+				<source srcset="./assets/images/nina.jpg" type="image/jpeg" media="(min-width: 768px)" loading="lazy">
+				<!-- mobile -->
+				<source srcset="./assets/images/nina-500.webp" type="image/webp" media="(max-width: 767.99px)" loading="lazy">
+				<source srcset="./assets/images/nina-500.jpg" type="image/jpeg" media="(max-width: 767.99px)" loading="lazy">
+				<!-- Fallback -->
+				<img src="./assets/images/nina.png" alt="photo de profil de Nina Carducci">
+			</picture>
 			<figcaption>Nina Carducci</figcaption>
 		</figure>
 		<div id="about-me">
@@ -173,15 +182,60 @@
 		<h2 class="title">Portfolio</h2>
 		<div class="container py-3">
 			<div class="gallery" style="display: none">
-				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.jpg" alt="photo d'un concert en salle"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.jpg" alt="photo d'un entrepreneur en costume"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.jpg" alt="photo d'une femme en réunion"/>
-				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.jpg" alt="photo de mains qui se tiennent avec alliances aux doigts"/>
-				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash.jpg" alt="portrait d'un homme"/>
-				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash.jpg" alt="portrait d'un homme et d'une femme à leur mariage"/>
-				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash.jpg" alt="portrait d'une femme"/>
-				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.jpg" alt="photo d'un chanteur en plein concert"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.jpg" alt="photo d'une femme devant son ordinateur portable"/>
+				<picture data-gallery-tag="Concert" class="gallery-item">
+					<source srcset="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.jpg" alt="photo d'un concert en salle" loading="lazy"/>
+				</picture>
+				<picture data-gallery-tag="Entreprises" class="gallery-item">
+					<source srcset="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.jpg" alt="photo d'un entrepreneur en costume"/>
+				</picture>
+				<picture data-gallery-tag="Entreprises" class="gallery-item">
+					<source srcset="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.jpg" alt="photo d'une femme en réunion"/>
+				</picture>
+				<picture data-gallery-tag="Mariages" class="gallery-item">
+					<source srcset="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.jpg" alt="photo de mains qui se tiennent avec alliances aux doigts"/>
+				</picture>
+				<picture data-gallery-tag="Portrait" class="gallery-item">
+					<source srcset="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash.jpg" alt="portrait d'un homme"/>
+				</picture>
+				<picture data-gallery-tag="Mariages" class="gallery-item">
+					<source srcset="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash.jpg" alt="portrait d'un homme et d'une femme à leur mariage"/>
+				</picture>
+				<picture data-gallery-tag="Portrait" class="gallery-item">
+					<source srcset="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash.jpg" alt="portrait d'une femme"/>
+				</picture>
+				<picture data-gallery-tag="Concert" class="gallery-item">
+					<source srcset="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.jpg" alt="photo d'un chanteur en plein concert"/>
+				</picture>
+				<picture data-gallery-tag="Entreprises" class="gallery-item">
+					<source srcset="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash-500.webp" type="image/webp">
+					<source srcset="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash-500.jpg" type="image/jpeg">
+					<!-- Fallback -->
+					<img src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.jpg" alt="photo d'une femme devant son ordinateur portable"/>
+				</picture>
 			</div>
 		</div>
 		<aside class="quote">
@@ -268,9 +322,16 @@
 				<input type="submit" value="Envoyer"/>
 			</form>
 		</div>
-		<div class="picture right">
-			<img src="./assets/images/camera.png" alt="appareil photo">
-		</div>
+		<picture class="picture right">
+			<!-- desktop & tablet -->
+			<source srcset="./assets/images/camera.webp" type="image/webp" media="(min-width: 768px)">
+			<source srcset="./assets/images/camera.jpg" type="image/jpeg" media="(min-width: 768px)">
+			<!-- mobile -->
+			<source srcset="./assets/images/camera-500.webp" type="image/webp" media="(max-width: 767.99px)">
+			<source srcset="./assets/images/camera-500.jpg" type="image/jpeg" media="(max-width: 767.99px)">
+			<!-- Fallback -->
+			<img src="./assets/images/camera.png" alt="appareil photo" loading="lazy">
+		</picture>
 	</div>
 </footer>
 </body>

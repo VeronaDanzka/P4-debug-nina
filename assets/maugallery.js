@@ -49,7 +49,7 @@
     navigation: true
   };
   $.fn.mauGallery.listeners = function(options) {
-    $(".gallery-item").on("click", function() {
+    $(".gallery-item img").on("click", function() {
       if (options.lightBox && $(this).prop("tagName") === "IMG") {
         $.fn.mauGallery.methods.openLightBox($(this), options.lightboxId);
       } else {
@@ -114,9 +114,27 @@
       }
     },
     openLightBox(element, lightboxId) {
+      const srcUrl = element.attr("src").split(".jpg")
+      console.log(srcUrl)
+      const srcSetWebpMobile = `${srcUrl[0]}-500.webp`
+      const srcSetWebpDesktop = `${srcUrl[0]}-2000.webp`
+      const srcSetJpegMobile = `${srcUrl[0]}-500.jpg`
+      const srcSetJpegDesktop = `${srcUrl[0]}-2000.jpg`
       $(`#${lightboxId}`)
         .find(".lightboxImage")
         .attr("src", element.attr("src"));
+      $(`#${lightboxId}`)
+        .find("#webp-img-mobile")
+        .attr("srcset", srcSetWebpMobile);
+      $(`#${lightboxId}`)
+        .find("#jpeg-img-mobile")
+        .attr("srcset", srcSetJpegMobile);
+      $(`#${lightboxId}`)
+        .find("#webp-img-desktop")
+        .attr("srcset", srcSetWebpDesktop);
+      $(`#${lightboxId}`)
+        .find("#jpeg-img-desktop")
+        .attr("srcset", srcSetJpegDesktop);
       $(`#${lightboxId}`).modal("toggle");
     },
     prevImage() {
@@ -207,7 +225,13 @@
                                 ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;"><</div>'
                                 : '<span style="display:none;" />'
                             }
-                            <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>
+                            <picture>
+                              <source id="webp-img-mobile" type="image/webp" media="(max-width: 767.99px)">
+                              <source id="jpeg-img-mobile" type="image/jpeg" media="(max-width: 767.99px)">
+                              <source id="webp-img-desktop" type="image/webp" media="(min-width: 768px)">
+                              <source id="jpeg-img-desktop" type="image/jpeg" media="(min-width: 768px)">
+                              <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>
+                            </picture>
                             ${
                               navigation
                                 ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;}">></div>'
