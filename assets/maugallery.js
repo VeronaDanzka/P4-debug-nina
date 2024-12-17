@@ -115,7 +115,6 @@
     },
     openLightBox(element, lightboxId) {
       const srcUrl = element.attr("src").split(".jpg")
-      console.log(srcUrl)
       const srcSetWebpMobile = `${srcUrl[0]}-500.webp`
       const srcSetWebpDesktop = `${srcUrl[0]}-2000.webp`
       const srcSetJpegMobile = `${srcUrl[0]}-500.jpg`
@@ -123,10 +122,8 @@
       $(`#${lightboxId}`)
         .find(".lightboxImage")
         .attr("src", element.attr("src"));
-      $("#webp-img-mobile").attr("srcset", srcSetWebpMobile);
-      $("#jpeg-img-mobile").attr("srcset", srcSetJpegMobile);
-      $("#webp-img-desktop").attr("srcset", srcSetWebpDesktop);
-      $("#jpeg-img-desktop").attr("srcset", srcSetJpegDesktop);
+      $("#webp-img").attr("srcset", `${srcSetWebpDesktop} 2000w, ${srcSetWebpMobile} 500w`);
+      $("#jpeg-img").attr("srcset", `${srcSetJpegDesktop} 2000w, ${srcSetJpegMobile} 500w`);
       $(`#${lightboxId}`).modal("toggle");
     },
     prevImage() {
@@ -162,21 +159,16 @@
           index = i - 1;
         }
       });
-      console.log(imagesCollection)
       next =
         imagesCollection[index] ||
         imagesCollection[imagesCollection.length - 1];
       const srcUrlNext = $(next).attr("src").split(".jpg");
-      console.log(srcUrlNext);
       const srcSetWebpMobileNext = `${srcUrlNext[0]}-500.webp`;
       const srcSetWebpDesktopNext = `${srcUrlNext[0]}-2000.webp`;
       const srcSetJpegMobileNext = `${srcUrlNext[0]}-500.jpg`;
       const srcSetJpegDesktopNext = `${srcUrlNext[0]}-2000.jpg`;
-      $("#webp-img-mobile").attr("srcset", srcSetWebpMobileNext);
-      $("#jpeg-img-mobile").attr("srcset", srcSetWebpDesktopNext);
-      $("#webp-img-desktop").attr("srcset", srcSetJpegMobileNext);
-      $("#jpeg-img-desktop").attr("srcset", srcSetJpegDesktopNext);
-      $(".lightboxImage").attr("src", $(next).attr("src"));
+      $("#webp-img").attr("srcset", `${srcSetWebpDesktopNext} 2000w, ${srcSetWebpMobileNext} 500w`);
+      $("#jpeg-img").attr("srcset", `${srcSetJpegDesktopNext} 2000w, ${srcSetJpegMobileNext} 500w`);
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
     nextImage() {
@@ -215,15 +207,12 @@
       });
       next = imagesCollection[index] || imagesCollection[0];
       const srcUrlNext = $(next).attr("src").split(".jpg");
-      console.log(srcUrlNext);
       const srcSetWebpMobileNext = `${srcUrlNext[0]}-500.webp`;
       const srcSetWebpDesktopNext = `${srcUrlNext[0]}-2000.webp`;
       const srcSetJpegMobileNext = `${srcUrlNext[0]}-500.jpg`;
       const srcSetJpegDesktopNext = `${srcUrlNext[0]}-2000.jpg`;
-      $("#webp-img-mobile").attr("srcset", srcSetWebpMobileNext);
-      $("#jpeg-img-mobile").attr("srcset", srcSetWebpDesktopNext);
-      $("#webp-img-desktop").attr("srcset", srcSetJpegMobileNext);
-      $("#jpeg-img-desktop").attr("srcset", srcSetJpegDesktopNext);
+      $("#webp-img").attr("srcset", `${srcSetWebpDesktopNext} 2000w, ${srcSetWebpMobileNext} 500w`);
+      $("#jpeg-img").attr("srcset", `${srcSetJpegDesktopNext} 2000w, ${srcSetJpegMobileNext} 500w`);
       $(".lightboxImage").attr("src", $(next).attr("src"));
     },
     createLightBox(gallery, lightboxId, navigation) {
@@ -239,10 +228,14 @@
                                 : '<span style="display:none;" />'
                             }
                             <picture>
-                              <source id="webp-img-mobile" type="image/webp" media="(max-width: 767.99px)">
-                              <source id="jpeg-img-mobile" type="image/jpeg" media="(max-width: 767.99px)">
-                              <source id="webp-img-desktop" type="image/webp" media="(min-width: 768px)">
-                              <source id="jpeg-img-desktop" type="image/jpeg" media="(min-width: 768px)">
+                              <source id="webp-img" 
+                                      sizes="(min-width: 768px) 2000px,
+                                             (max-width: 767.99px) 500px" 
+                                      type="image/webp">
+                              <source id="jpeg-img"
+                                      sizes="(min-width: 768px) 2000px,
+                                             (max-width: 767.99px) 500px" 
+                                      type="image/jpeg">
                               <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>
                             </picture>
                             ${
