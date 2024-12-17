@@ -151,6 +151,9 @@ body {
 	object-fit: cover;
 	cursor: pointer;
 }
+.modal-body .lightboxImage{
+	object-fit: contain!important;
+}
 .title{
 	text-align: center;
 	padding-block: 2em;
